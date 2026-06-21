@@ -1,0 +1,21 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Secrets — never commit real .env (use .env.example for the template)
+.env
+.env.*
+!.env.example
+
+# Logs / dev-server artifacts
+*.log
+*.err
+logs
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea

@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS "Message";
+DROP TABLE IF EXISTS "Conversation";
+DROP TABLE IF EXISTS "KnowledgeChunk";
+DROP TABLE IF EXISTS "KnowledgeDoc";
+
+DROP EXTENSION IF EXISTS vector;
