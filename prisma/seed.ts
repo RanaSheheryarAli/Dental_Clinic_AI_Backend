@@ -20,7 +20,7 @@ async function main() {
       mission:
         'Showcase clear treatment planning, dependable appointment booking, and a modern AI-powered clinic experience under the Sheheryar Ali brand.',
       address: 'Office 12, Main Boulevard, Johar Town, Lahore, Pakistan',
-      phone: '+92 342 8424576',
+      phone: '+1(571)755-8670',
       whatsapp: '+92 310 2589624',
       email: 'sherrydev2480@gmail.com',
       mapUrl:
