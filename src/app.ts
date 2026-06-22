@@ -2,7 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import pinoHttpModule from 'pino-http';
 import { API_PREFIX } from './config/constants.js';
-import { corsOrigins } from './config/env.js';
+import { isCorsOriginAllowed } from './config/env.js';
 import { bookingRouter } from './modules/booking/booking.routes.js';
 import { chatRouter } from './modules/chat/chat.routes.js';
 import { clinicRouter } from './modules/clinic/clinic.routes.js';
@@ -19,7 +19,7 @@ export function createApp() {
   app.use(
     cors({
       origin(origin, callback) {
-        if (!origin || corsOrigins.includes(origin)) {
+        if (!origin || isCorsOriginAllowed(origin)) {
           callback(null, true);
           return;
         }

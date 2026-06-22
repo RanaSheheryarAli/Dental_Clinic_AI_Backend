@@ -29,7 +29,7 @@ serves three channels: web chat, WhatsApp, and voice (Retell). See
 | `CALCOM_API_KEY` / `CALCOM_BASE_URL` / `DENTIST_CALCOM_CONFIGS` | Cal.com booking (default key + per-dentist JSON) |
 | `WHATSAPP_TOKEN` / `WHATSAPP_PHONE_NUMBER_ID` / `WHATSAPP_VERIFY_TOKEN` | WhatsApp (Meta Cloud API) |
 | `RETELL_API_KEY` | Voice (Retell) |
-| `CORS_ORIGIN` | Comma-separated allowed origins |
+| `CORS_ORIGIN` | Comma-separated allowed origins. Supports exact origins and wildcard patterns such as `https://*.vercel.app` |
 
 **Provider behavior:** Claude is used if `ANTHROPIC_API_KEY` is set, otherwise Groq, otherwise a
 safe canned reply. **Secrets:** `.env` is gitignored — never commit real keys; keep `.env.example`

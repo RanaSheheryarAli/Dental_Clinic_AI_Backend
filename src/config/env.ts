@@ -31,7 +31,7 @@ const envSchema = z.object({
   EMBEDDING_MODEL: z.string().default('Xenova/all-MiniLM-L6-v2'),
   KB_PDF_PATH: z.string().default('../docs/knowledge-base.pdf'),
   CORS_ORIGIN: z.string().default(
-    'http://localhost:4173,http://localhost:5173,http://127.0.0.1:4173,http://127.0.0.1:5173'
+    'http://localhost:4173,http://localhost:5173,http://127.0.0.1:4173,http://127.0.0.1:5173,https://*.vercel.app'
   )
 });
 
@@ -48,6 +48,24 @@ export const corsOrigins = env.CORS_ORIGIN
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean);
+
+export function isCorsOriginAllowed(origin: string) {
+  return corsOrigins.some((allowedOrigin) => {
+    if (allowedOrigin === origin) {
+      return true;
+    }
+
+    if (!allowedOrigin.includes('*')) {
+      return false;
+    }
+
+    const escaped = allowedOrigin
+      .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/\*/g, '.*');
+
+    return new RegExp(`^${escaped}$`).test(origin);
+  });
+}
 
 function parseDentistConfigs(rawValue: string): unknown {
   const trimmed = rawValue.trim();
