@@ -14,15 +14,15 @@ async function main() {
 
   await prisma.clinic.create({
     data: {
-      name: 'Sheheryar Dental AI Clinic',
+      name: 'Dental AI Clinic',
       about:
-        'Sheheryar Ali Dental AI Clinic is a portfolio-ready dental practice demo that combines preventive care, restorative treatment, and AI-assisted patient support.',
+        'Dental AI Clinic is a portfolio-ready dental practice demo that combines preventive care, restorative treatment, and AI-assisted patient support.',
       mission:
         'Showcase clear treatment planning, dependable appointment booking, and a modern AI-powered clinic experience under the Sheheryar Ali brand.',
       address: 'Office 12, Main Boulevard, Johar Town, Lahore, Pakistan',
-      phone: '+92 300 1234567',
-      whatsapp: '+92 300 1234567',
-      email: 'sheheryarali@example.com',
+      phone: '+92 342 8424576',
+      whatsapp: '+92 310 2589624',
+      email: 'sherrydev2480@gmail.com',
       mapUrl:
         'https://www.google.com/maps?q=Office+12+Main+Boulevard+Johar+Town+Lahore+Pakistan&output=embed',
       hours: {
@@ -66,25 +66,11 @@ async function main() {
   await prisma.dentist.createMany({
     data: [
       {
-        name: 'Dr. Ayesha Malik',
-        specialty: 'General and family dentistry',
-        bio: 'Focused on preventive care, patient education, and minimally invasive restorative treatment.',
-        photoUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
-        calUserId: 201
-      },
-      {
         name: 'Dr. Sheheryar Ali',
         specialty: 'Endodontics',
         bio: 'Specializes in root canal therapy and urgent pain management with microscope-assisted treatment.',
         photoUrl: 'https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=800&q=80',
         calUserId: 202
-      },
-      {
-        name: 'Dr. Sana Rehman',
-        specialty: 'Implant and restorative dentistry',
-        bio: 'Works on implant planning, full-mouth rehabilitation, and restorative case coordination.',
-        photoUrl: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80',
-        calUserId: 203
       }
     ]
   });
