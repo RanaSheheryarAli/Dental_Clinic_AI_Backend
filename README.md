@@ -61,6 +61,15 @@ errors are thrown as `AppError` and formatted by one global middleware.
 |--------|-------------|
 | `npm run dev` | Start with hot reload (tsx) |
 | `npm run build` | Type-check + compile to `dist/` |
-| `npm start` | Run the compiled server |
+| `npm start` | Run the compiled server from `dist/src/server.js` |
 | `npm run prisma:migrate` | Apply migrations |
 | `npm run prisma:seed` | Seed clinic data |
+
+## Render
+
+Use an LTS Node version on Render (`20` or `22`), not the current default `24`.
+
+- Build command: `npm install && npx prisma generate && npm run build`
+- Start command: `npx prisma migrate deploy && npm start`
+
+If your database is hosted on Neon, make sure the Render `DATABASE_URL` is the real runtime connection string from Neon and includes `sslmode=require`.
