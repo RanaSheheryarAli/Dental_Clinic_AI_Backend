@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { prisma } from '../../config/db.js';
+import type { Dentist, Service } from '../../generated/prisma/client.js';
 import { dentistCalConfigs, env } from '../../config/env.js';
 import { AppError } from '../../shared/errors/app-error.js';
 import { getClinicTimeZone } from '../../shared/utils/date-time.js';
@@ -79,7 +80,7 @@ export class BookingService {
    * Shared by the conversation tools and the Retell voice functions so name→id matching lives in one place.
    */
   async resolveEntities(input: { serviceId?: string; serviceName?: string; dentistId?: string; dentistName?: string }) {
-    const [services, dentists] = await Promise.all([prisma.service.findMany(), prisma.dentist.findMany()]);
+    const [services, dentists]: [Service[], Dentist[]] = await Promise.all([prisma.service.findMany(), prisma.dentist.findMany()]);
 
     const service =
       (input.serviceId ? services.find((item) => item.id === input.serviceId) : undefined) ??

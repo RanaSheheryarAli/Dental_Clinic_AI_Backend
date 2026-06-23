@@ -1,8 +1,9 @@
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../src/generated/prisma/client.js';
+import { env } from '../src/config/env.js';
 
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL
+  connectionString: env.DATABASE_URL
 });
 
 const prisma = new PrismaClient({ adapter });
@@ -26,12 +27,12 @@ async function main() {
       mapUrl:
         'https://www.google.com/maps?q=Office+12+Main+Boulevard+Johar+Town+Lahore+Pakistan&output=embed',
       hours: {
-        mon: '09:00-18:00',
-        tue: '09:00-18:00',
-        wed: '09:00-18:00',
-        thu: '09:00-18:00',
-        fri: '09:00-16:00',
-        sat: '10:00-14:00',
+        mon: '09:00 AM-06:00 PM',
+        tue: '09:00 AM-06:00 PM',
+        wed: '09:00 AM-06:00 PM',
+        thu: '09:00 AM-06:00 PM',
+        fri: '09:00 AM-04:00 PM',
+        sat: 'Closed',
         sun: 'Closed'
       }
     }

@@ -16,59 +16,27 @@ import type * as Prisma from "./prismaNamespace.js"
 
 
 const config: runtime.GetPrismaClientConfig = {
-  "generator": {
-    "name": "client",
-    "provider": {
-      "fromEnvVar": null,
-      "value": "prisma-client"
-    },
-    "output": {
-      "value": "C:\\Users\\Sheheryar ali\\Documents\\dental-clinic-ai\\backend\\src\\generated\\prisma",
-      "fromEnvVar": null
-    },
-    "config": {
-      "engineType": "client"
-    },
-    "binaryTargets": [
-      {
-        "fromEnvVar": null,
-        "value": "windows",
-        "native": true
-      }
-    ],
-    "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Sheheryar ali\\Documents\\dental-clinic-ai\\backend\\prisma\\schema.prisma",
-    "isCustomOutput": true
-  },
-  "relativePath": "../../../prisma",
-  "clientVersion": "6.19.3",
-  "engineVersion": "c2990dca591cba766e3b7ef5d9e8a84796e47ab7",
-  "datasourceNames": [
-    "db"
-  ],
+  "previewFeatures": [],
+  "clientVersion": "7.8.0",
+  "engineVersion": "3c6e192761c0362d496ed980de936e2f3cebcd3a",
   "activeProvider": "postgresql",
-  "postinstall": false,
-  "inlineDatasources": {
-    "db": {
-      "url": {
-        "fromEnvVar": "DATABASE_URL",
-        "value": null
-      }
-    }
-  },
-  "inlineSchema": "generator client {\n  provider   = \"prisma-client\"\n  output     = \"../src/generated/prisma\"\n  engineType = \"client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Clinic {\n  id        String   @id @default(cuid())\n  name      String\n  about     String\n  mission   String?\n  address   String\n  phone     String\n  whatsapp  String\n  email     String\n  mapUrl    String?\n  hours     Json\n  createdAt DateTime @default(now())\n}\n\nmodel Service {\n  id             String  @id @default(cuid())\n  name           String\n  description    String\n  durationMin    Int\n  price          Decimal @db.Decimal(10, 2)\n  calEventTypeId Int?\n}\n\nmodel Dentist {\n  id        String  @id @default(cuid())\n  name      String\n  specialty String\n  bio       String?\n  photoUrl  String?\n  calUserId Int?\n}\n",
-  "inlineSchemaHash": "202857e8b9b35fff2d41bc803bfdf15cc4100aaeb5cd09cb7909647582b9353c",
-  "copyEngine": true,
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Clinic {\n  id        String   @id @default(cuid())\n  name      String\n  about     String\n  mission   String?\n  address   String\n  phone     String\n  whatsapp  String\n  email     String\n  mapUrl    String?\n  hours     Json\n  createdAt DateTime @default(now())\n}\n\nmodel Service {\n  id             String  @id @default(cuid())\n  name           String\n  description    String\n  durationMin    Int\n  price          Decimal @db.Decimal(10, 2)\n  calEventTypeId Int?\n}\n\nmodel Dentist {\n  id        String  @id @default(cuid())\n  name      String\n  specialty String\n  bio       String?\n  photoUrl  String?\n  calUserId Int?\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
     "types": {}
   },
-  "dirname": ""
+  "parameterizationSchema": {
+    "strings": [],
+    "graph": ""
+  }
 }
 
 config.runtimeDataModel = JSON.parse("{\"models\":{\"Clinic\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"about\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mission\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"address\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phone\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"whatsapp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mapUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hours\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Service\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"durationMin\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"calEventTypeId\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"Dentist\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"specialty\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"bio\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"photoUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"calUserId\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
-config.engineWasm = undefined
+config.parameterizationSchema = {
+  strings: JSON.parse("[\"where\",\"Clinic.findUnique\",\"Clinic.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"Clinic.findFirst\",\"Clinic.findFirstOrThrow\",\"Clinic.findMany\",\"data\",\"Clinic.createOne\",\"Clinic.createMany\",\"Clinic.createManyAndReturn\",\"Clinic.updateOne\",\"Clinic.updateMany\",\"Clinic.updateManyAndReturn\",\"create\",\"update\",\"Clinic.upsertOne\",\"Clinic.deleteOne\",\"Clinic.deleteMany\",\"having\",\"_count\",\"_min\",\"_max\",\"Clinic.groupBy\",\"Clinic.aggregate\",\"Service.findUnique\",\"Service.findUniqueOrThrow\",\"Service.findFirst\",\"Service.findFirstOrThrow\",\"Service.findMany\",\"Service.createOne\",\"Service.createMany\",\"Service.createManyAndReturn\",\"Service.updateOne\",\"Service.updateMany\",\"Service.updateManyAndReturn\",\"Service.upsertOne\",\"Service.deleteOne\",\"Service.deleteMany\",\"_avg\",\"_sum\",\"Service.groupBy\",\"Service.aggregate\",\"Dentist.findUnique\",\"Dentist.findUniqueOrThrow\",\"Dentist.findFirst\",\"Dentist.findFirstOrThrow\",\"Dentist.findMany\",\"Dentist.createOne\",\"Dentist.createMany\",\"Dentist.createManyAndReturn\",\"Dentist.updateOne\",\"Dentist.updateMany\",\"Dentist.updateManyAndReturn\",\"Dentist.upsertOne\",\"Dentist.deleteOne\",\"Dentist.deleteMany\",\"Dentist.groupBy\",\"Dentist.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"name\",\"specialty\",\"bio\",\"photoUrl\",\"calUserId\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"description\",\"durationMin\",\"price\",\"calEventTypeId\",\"about\",\"mission\",\"address\",\"phone\",\"whatsapp\",\"email\",\"mapUrl\",\"hours\",\"createdAt\",\"string_contains\",\"string_starts_with\",\"string_ends_with\",\"array_starts_with\",\"array_ends_with\",\"array_contains\",\"set\",\"increment\",\"decrement\",\"multiply\",\"divide\"]"),
+  graph: "ggEdMA48AABsADA9AAAEABA-AABsADA_AQAAAAFAAQBZACFUAQBZACFVAQBaACFWAQBZACFXAQBZACFYAQBZACFZAQBZACFaAQBaACFbAABtACBcQABuACEBAAAAAQAgAQAAAAEAIA48AABsADA9AAAEABA-AABsADA_AQBZACFAAQBZACFUAQBZACFVAQBaACFWAQBZACFXAQBZACFYAQBZACFZAQBZACFaAQBaACFbAABtACBcQABuACECVQAAbwAgWgAAbwAgAwAAAAQAIAMAAAUAMAQAAAEAIAMAAAAEACADAAAFADAEAAABACADAAAABAAgAwAABQAwBAAAAQAgCz8BAAAAAUABAAAAAVQBAAAAAVUBAAAAAVYBAAAAAVcBAAAAAVgBAAAAAVkBAAAAAVoBAAAAAVuAAAAAAVxAAAAAAQEIAAAJACALPwEAAAABQAEAAAABVAEAAAABVQEAAAABVgEAAAABVwEAAAABWAEAAAABWQEAAAABWgEAAAABW4AAAAABXEAAAAABAQgAAAsAMAEIAAALADALPwEAdQAhQAEAdQAhVAEAdQAhVQEAdgAhVgEAdQAhVwEAdQAhWAEAdQAhWQEAdQAhWgEAdgAhW4AAAAABXEAAggEAIQIAAAABACAIAAAOACALPwEAdQAhQAEAdQAhVAEAdQAhVQEAdgAhVgEAdQAhVwEAdQAhWAEAdQAhWQEAdQAhWgEAdgAhW4AAAAABXEAAggEAIQIAAAAEACAIAAAQACACAAAABAAgCAAAEAAgAwAAAAEAIA8AAAkAIBAAAA4AIAEAAAABACABAAAABAAgBRUAAH8AIBYAAIEBACAXAACAAQAgVQAAbwAgWgAAbwAgDjwAAGYAMD0AABcAED4AAGYAMD8BAE0AIUABAE0AIVQBAE0AIVUBAE4AIVYBAE0AIVcBAE0AIVgBAE0AIVkBAE0AIVoBAE4AIVsAAGcAIFxAAGgAIQMAAAAEACADAAAWADAUAAAXACADAAAABAAgAwAABQAwBAAAAQAgCTwAAGMAMD0AAB0AED4AAGMAMD8BAAAAAUABAFkAIVABAFkAIVECAGQAIVIQAGUAIVMCAFsAIQEAAAAaACABAAAAGgAgCTwAAGMAMD0AAB0AED4AAGMAMD8BAFkAIUABAFkAIVABAFkAIVECAGQAIVIQAGUAIVMCAFsAIQFTAABvACADAAAAHQAgAwAAHgAwBAAAGgAgAwAAAB0AIAMAAB4AMAQAABoAIAMAAAAdACADAAAeADAEAAAaACAGPwEAAAABQAEAAAABUAEAAAABUQIAAAABUhAAAAABUwIAAAABAQgAACIAIAY_AQAAAAFAAQAAAAFQAQAAAAFRAgAAAAFSEAAAAAFTAgAAAAEBCAAAJAAwAQgAACQAMAY_AQB1ACFAAQB1ACFQAQB1ACFRAgB9ACFSEAB-ACFTAgB3ACECAAAAGgAgCAAAJwAgBj8BAHUAIUABAHUAIVABAHUAIVECAH0AIVIQAH4AIVMCAHcAIQIAAAAdACAIAAApACACAAAAHQAgCAAAKQAgAwAAABoAIA8AACIAIBAAACcAIAEAAAAaACABAAAAHQAgBhUAAHgAIBYAAHsAIBcAAHoAICgAAHkAICkAAHwAIFMAAG8AIAk8AABcADA9AAAwABA-AABcADA_AQBNACFAAQBNACFQAQBNACFRAgBdACFSEABeACFTAgBPACEDAAAAHQAgAwAALwAwFAAAMAAgAwAAAB0AIAMAAB4AMAQAABoAIAk8AABYADA9AAA2ABA-AABYADA_AQAAAAFAAQBZACFBAQBZACFCAQBaACFDAQBaACFEAgBbACEBAAAAMwAgAQAAADMAIAk8AABYADA9AAA2ABA-AABYADA_AQBZACFAAQBZACFBAQBZACFCAQBaACFDAQBaACFEAgBbACEDQgAAbwAgQwAAbwAgRAAAbwAgAwAAADYAIAMAADcAMAQAADMAIAMAAAA2ACADAAA3ADAEAAAzACADAAAANgAgAwAANwAwBAAAMwAgBj8BAAAAAUABAAAAAUEBAAAAAUIBAAAAAUMBAAAAAUQCAAAAAQEIAAA7ACAGPwEAAAABQAEAAAABQQEAAAABQgEAAAABQwEAAAABRAIAAAABAQgAAD0AMAEIAAA9ADAGPwEAdQAhQAEAdQAhQQEAdQAhQgEAdgAhQwEAdgAhRAIAdwAhAgAAADMAIAgAAEAAIAY_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-AABjADA_AQBZACFAAQBZACFQAQBZACFRAgBkACFSEABlACFTAgBbACEIRQIAAAABRgIAAAAERwIAAAAESAIAAAABSQIAAAABSgIAAAABSwIAAAABTAIAVgAhCEUQAAAAAUYQAAAABEcQAAAABEgQAAAAAUkQAAAAAUoQAAAAAUsQAAAAAUwQAGAAIQ48AABmADA9AAAXABA-AABmADA_AQBNACFAAQBNACFUAQBNACFVAQBOACFWAQBNACFXAQBNACFYAQBNACFZAQBNACFaAQBOACFbAABnACBcQABoACEPFQAAVgAgFgAAawAgFwAAawAgRYAAAAABSIAAAAABSYAAAAABSoAAAAABS4AAAAABTIAAAAABXQEAAAABXgEAAAABXwEAAAABYIAAAAABYYAAAAABYoAAAAABCxUAAFYAIBYAAGoAIBcAAGoAIEVAAAAAAUZAAAAABEdAAAAABEhAAAAAAUlAAAAAAUpAAAAAAUtAAAAAAUxAAGkAIQsVAABWACAWAABqACAXAABqACBFQAAAAAFGQAAAAARHQAAAAARIQAAAAAFJQAAAAAFKQAAAAAFLQAAAAAFMQABpACEIRUAAAAABRkAAAAAER0AAAAAESEAAAAABSUAAAAABSkAAAAABS0AAAAABTEAAagAhDEWAAAAAAUiAAAAAAUmAAAAAAUqAAAAAAUuAAAAAAUyAAAAAAV0BAAAAAV4BAAAAAV8BAAAAAWCAAAAAAWGAAAAAAWKAAAAAAQ48AABsADA9AAAEABA-AABsADA_AQBZACFAAQBZACFUAQBZACFVAQBaACFWAQBZACFXAQBZACFYAQBZACFZAQBZACFaAQBaACFbAABtACBcQABuACEMRYAAAAABSIAAAAABSYAAAAABSoAAAAABS4AAAAABTIAAAAABXQEAAAABXgEAAAABXwEAAAABYIAAAAABYYAAAAABYoAAAAABCEVAAAAAAUZAAAAABEdAAAAABEhAAAAAAUlAAAAAAUpAAAAAAUtAAAAAAUxAAGoAIQAAAAAAAAFjAQAAAAEBYwEAAAABBWMCAAAAAWQCAAAAAWUCAAAAAWYCAAAAAWcCAAAAAQAAAAAABWMCAAAAAWQCAAAAAWUCAAAAAWYCAAAAAWcCAAAAAQVjEAAAAAFkEAAAAAFlEAAAAAFmEAAAAAFnEAAAAAEAAAABY0AAAAABAAAAAAMVAAYWAAcXAAgAAAADFQAGFgAHFwAIAAAABRUADhYAERcAEigADykAEAAAAAAABRUADhYAERcAEigADykAEAAAAAUVABgWABsXABwoABkpABoAAAAAAAUVABgWABsXABwoABkpABoBAgECAwEFBgEGBwEHCAEJCgEKDAILDQMMDwENEQIOEgQREwESFAETFQIYGAUZGQkaGwobHAocHwodIAoeIQofIwogJQIhJgsiKAojKgIkKwwlLAomLQonLgIqMQ0rMhMsNBQtNRQuOBQvORQwOhQxPBQyPgIzPxU0QRQ1QwI2RBY3RRQ4RhQ5RwI6Shc7Sx0"
+}
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -77,14 +45,15 @@ async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Modul
 }
 
 config.compilerWasm = {
-  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_bg.postgresql.mjs"),
+  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"),
 
   getQueryCompilerWasmModule: async () => {
-    const { wasm } = await import("@prisma/client/runtime/query_compiler_bg.postgresql.wasm-base64.mjs")
+    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs")
     return await decodeBase64AsWasm(wasm)
-  }
-}
+  },
 
+  importName: "./query_compiler_fast_bg.js"
+}
 
 
 
@@ -98,12 +67,14 @@ export interface PrismaClientConstructor {
    * Type-safe database client for TypeScript
    * @example
    * ```
-   * const prisma = new PrismaClient()
+   * const prisma = new PrismaClient({
+   *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
+   * })
    * // Fetch zero or more Clinics
    * const clinics = await prisma.clinic.findMany()
    * ```
    * 
-   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+   * Read more in our [docs](https://pris.ly/d/client).
    */
 
   new <
@@ -111,7 +82,7 @@ export interface PrismaClientConstructor {
     LogOpts extends LogOptions<Options> = LogOptions<Options>,
     OmitOpts extends Prisma.PrismaClientOptions['omit'] = Options extends { omit: infer U } ? U : Prisma.PrismaClientOptions['omit'],
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
-  >(options?: Prisma.Subset<Options, Prisma.PrismaClientOptions> ): PrismaClient<LogOpts, OmitOpts, ExtArgs>
+  >(options: Prisma.Subset<Options, Prisma.PrismaClientOptions> ): PrismaClient<LogOpts, OmitOpts, ExtArgs>
 }
 
 /**
@@ -120,17 +91,19 @@ export interface PrismaClientConstructor {
  * Type-safe database client for TypeScript
  * @example
  * ```
- * const prisma = new PrismaClient()
+ * const prisma = new PrismaClient({
+ *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
+ * })
  * // Fetch zero or more Clinics
  * const clinics = await prisma.clinic.findMany()
  * ```
  * 
- * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+ * Read more in our [docs](https://pris.ly/d/client).
  */
 
 export interface PrismaClient<
   in LogOpts extends Prisma.LogLevel = never,
-  in out OmitOpts extends Prisma.PrismaClientOptions['omit'] = Prisma.PrismaClientOptions['omit'],
+  in out OmitOpts extends Prisma.PrismaClientOptions['omit'] = undefined,
   in out ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -154,7 +127,7 @@ export interface PrismaClient<
    * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
    * ```
    *
-   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   * Read more in our [docs](https://pris.ly/d/raw-queries).
    */
   $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
 
@@ -166,7 +139,7 @@ export interface PrismaClient<
    * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
    * ```
    *
-   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   * Read more in our [docs](https://pris.ly/d/raw-queries).
    */
   $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
 
@@ -177,7 +150,7 @@ export interface PrismaClient<
    * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
    * ```
    *
-   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   * Read more in our [docs](https://pris.ly/d/raw-queries).
    */
   $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
 
@@ -189,7 +162,7 @@ export interface PrismaClient<
    * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
    * ```
    *
-   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   * Read more in our [docs](https://pris.ly/d/raw-queries).
    */
   $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
 
@@ -205,12 +178,11 @@ export interface PrismaClient<
    * ])
    * ```
    * 
-   * Read more in our [docs](https://www.prisma.io/docs/concepts/components/prisma-client/transactions).
+   * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
    */
-  $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
+  $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
 
   $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => runtime.Types.Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<R>
-
 
   $extends: runtime.Types.Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<OmitOpts>, ExtArgs, runtime.Types.Utils.Call<Prisma.TypeMapCb<OmitOpts>, {
     extArgs: ExtArgs
@@ -247,7 +219,6 @@ export interface PrismaClient<
   get dentist(): Prisma.DentistDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
-export function getPrismaClientClass(dirname: string): PrismaClientConstructor {
-  config.dirname = dirname
+export function getPrismaClientClass(): PrismaClientConstructor {
   return runtime.getPrismaClient(config) as unknown as PrismaClientConstructor
 }

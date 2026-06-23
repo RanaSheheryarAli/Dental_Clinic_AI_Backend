@@ -199,7 +199,7 @@ export type DentistGroupByOutputType = {
   _max: DentistMaxAggregateOutputType | null
 }
 
-type GetDentistGroupByPayload<T extends DentistGroupByArgs> = Prisma.PrismaPromise<
+export type GetDentistGroupByPayload<T extends DentistGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<DentistGroupByOutputType, T['by']> &
       {
@@ -1026,6 +1026,11 @@ export type DentistFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Skip the first `n` Dentists.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Dentists.
+   */
   distinct?: Prisma.DentistScalarFieldEnum | Prisma.DentistScalarFieldEnum[]
 }
 
