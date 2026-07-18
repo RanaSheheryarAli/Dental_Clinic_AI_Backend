@@ -11,6 +11,7 @@ export interface PromptContext {
   dentists: string[];
   todayIsoDate: string;
   dateReference: string;
+  channel?: string;
 }
 
 export function buildSystemPrompt(language: ConversationLanguage, context: PromptContext): string {
@@ -19,9 +20,15 @@ export function buildSystemPrompt(language: ConversationLanguage, context: Promp
       ? 'Respond in natural Urdu unless the user switches language. Mixed Urdu-English is fine if that matches the user.'
       : 'Respond in natural English unless the user asks otherwise. Mixed Urdu-English is fine if that matches the user.';
 
+  const voiceInstruction =
+    context.channel === 'voice'
+      ? 'You are on a live PHONE CALL. Reply in short, natural spoken sentences — the reply is read aloud by a text-to-speech voice. Never use markdown, tables, bullet points, headings, asterisks, or any symbols. Do not list prices in a table; say them in words. Keep each reply to one or two sentences and ask one question at a time.'
+      : '';
+
   const lines = [
     `You are the AI assistant for ${context.clinicName ?? 'a dental clinic'}, serving patients across web chat, WhatsApp, and voice.`,
     `Today's date is ${context.todayIsoDate} (timezone Asia/Karachi).`,
+    ...(voiceInstruction ? [voiceInstruction, ''] : []),
     '',
     'Date reference — resolve relative dates from this table, never calculate weekdays yourself:',
     context.dateReference,

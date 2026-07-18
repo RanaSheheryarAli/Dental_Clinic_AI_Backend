@@ -28,6 +28,11 @@ const envSchema = z.object({
   WHATSAPP_PHONE_NUMBER_ID: z.string().optional().default(''),
   WHATSAPP_VERIFY_TOKEN: z.string().optional().default(''),
   RETELL_API_KEY: z.string().optional().default(''),
+  // Voice (self-hosted: Twilio Media Streams + Deepgram STT/TTS, brain reused in-process).
+  DEEPGRAM_API_KEY: z.string().optional().default(''),
+  DEEPGRAM_STT_MODEL: z.string().default('nova-2'),
+  DEEPGRAM_TTS_MODEL: z.string().default('aura-2-thalia-en'),
+  VOICE_LANG: z.enum(['en', 'ur']).default('en'),
   EMBEDDING_MODEL: z.string().default('Xenova/all-MiniLM-L6-v2'),
   KB_PDF_PATH: z.string().default('../docs/knowledge-base.pdf'),
   CORS_ORIGIN: z.string().default(

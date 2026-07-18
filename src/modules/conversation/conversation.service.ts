@@ -214,7 +214,8 @@ export class ConversationService {
       services: services.map((service) => `${service.name} (${service.durationMin} min, price ${service.price})`),
       dentists: dentists.map((dentist) => (dentist.specialty ? `${dentist.name} — ${dentist.specialty}` : dentist.name)),
       todayIsoDate,
-      dateReference: buildDateReference(todayIsoDate)
+      dateReference: buildDateReference(todayIsoDate),
+      channel: input.channel
     });
 
     // Working transcript for this turn (sanitized history). New tool round-trips are appended here

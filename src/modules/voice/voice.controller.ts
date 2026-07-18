@@ -18,6 +18,21 @@ export class VoiceController {
     const result = await voiceService.handleWebhook(req.body as VoiceWebhookPayload);
     res.json(createSuccessResponse(result));
   }
+
+  // Twilio hits this when a call comes in. We reply with TwiML that tells Twilio
+  // to open a media stream to our WebSocket. The wss host is derived from the
+  // incoming request, so it works behind any ngrok/public domain automatically.
+  async twiml(req: Request, res: Response) {
+    const host = (req.headers['x-forwarded-host'] as string | undefined) ?? req.headers.host ?? '';
+    const wsUrl = `wss://${host}/api/voice/ws`;
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Connect>
+    <Stream url="${wsUrl}" />
+  </Connect>
+</Response>`;
+    res.type('text/xml').send(xml);
+  }
 }
 
 export const voiceController = new VoiceController();
